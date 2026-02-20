@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>New Purchase Order</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<title>Create Purchase Order</title>
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 p-6">
+<body class="bg-gray-100">
 
-<h2 class="text-2xl font-bold mb-4">New Purchase Order</h2>
+<div class="w-64 bg-gray-900 text-white min-h-screen p-4 fixed">
+  <h1 class="text-xl font-bold mb-6">Fundora ERP</h1>
+  <a href="dashboard.html" class="block py-2 px-3 hover:bg-gray-700 rounded mb-2">Dashboard</a>
+  <a href="vendors.html" class="block py-2 px-3 hover:bg-gray-700 rounded mb-2">Vendors</a>
+  <a href="purchase.html" class="block py-2 px-3 hover:bg-gray-700 rounded">Purchase Orders</a>
+</div>
+
+<div class="ml-64 p-6">
+
+<h2 class="text-2xl font-bold mb-4">Create Purchase Order</h2>
 
 <div class="bg-white p-6 rounded shadow">
 
-  <label class="block mb-1">Vendor</label>
-  <input id="vendor" class="w-full border p-2 mb-3">
+<label class="block mb-1">Vendor</label>
+<select id="vendorSelect" class="w-full border p-2 mb-3"></select>
 
-  <label class="block mb-1">Date</label>
-  <input id="date" type="date" class="w-full border p-2 mb-3">
+<label class="block mb-1">Date</label>
+<input id="date" type="date" class="w-full border p-2 mb-3">
 
-  <label class="block mb-1">PO Number</label>
-  <input id="poNumber" class="w-full border p-2 mb-3">
+<label class="block mb-1">PO Number</label>
+<input id="poNumber" class="w-full border p-2 mb-3">
 
-  <label class="block mb-1">Amount</label>
-  <input id="subtotal" type="number" class="w-full border p-2 mb-3">
+<h3 class="font-bold mb-2">Items</h3>
+<table class="w-full mb-3">
+<thead>
+<tr><th>Item</th><th>Qty</th><th>Rate</th><th>Total</th></tr>
+</thead>
+<tbody id="itemsBody"></tbody>
+</table>
+<button onclick="addRow()" class="bg-gray-600 text-white px-3 py-1 rounded mb-3">+ Add Item</button>
 
-  <label class="block mb-1">Status</label>
-  <select id="status" class="w-full border p-2 mb-3">
-    <option>Draft</option>
-    <option>Issued</option>
-    <option>Closed</option>
-  </select>
+<h3 class="font-bold">Subtotal: <span id="subtotal">0</span></h3>
 
-  <button onclick="savePO()"
-    class="bg-blue-600 text-white px-4 py-2 rounded">
-    Save Purchase Order
-  </button>
+<label class="block mt-3 mb-1">Status</label>
+<select id="status" class="w-full border p-2 mb-3">
+<option>Draft</option>
+<option>Issued</option>
+<option>Closed</option>
+</select>
 
+<button onclick="savePO()" class="bg-blue-600 text-white px-4 py-2 rounded">
+Save Purchase Order
+</button>
+
+</div>
 </div>
 
 <script type="module" src="js/po-editor.js"></script>
