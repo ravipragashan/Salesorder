@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Sales Order</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>Sales Order</h2>
+
+<label>Date</label>
+<input type="date" id="date">
+
+<label>SO Number</label>
+<input type="text" id="number">
+
+<label>Supplier</label>
+<select id="supplierSelect"></select>
+
+<div id="supplierDetails"></div>
+
+<h3>Items</h3>
+<table id="itemsTable">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Qty</th>
+      <th>Rate</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<button onclick="addRow()">+ Add Item</button>
+
+<h3>Total: <span id="grandTotal">0.00</span></h3>
+
+<button onclick="saveOrder()">Save</button>
+
+<script src="js/db.js"></script>
+<script src="js/editor.js"></script>
+</body>
+</html>
